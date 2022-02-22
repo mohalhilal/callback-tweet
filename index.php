@@ -1,13 +1,25 @@
-<?php 
+<?php
 
-if(!empty($_GET['oauth_verifier'])){
-        echo "OAUTH VERIFIER : ".$_GET['oauth_verifier'];
-        echo "OAUTH TOKEN  : ".$_GET['oauth_token'];
-    } else {
-        echo "CUMA PELARIAN AJA"
-    }
+require('vendor/autoload.php');
 
+$app = new Silex\Application();
+$app['debug'] = true;
 
+// Register the monolog logging service
+$app->register(new Silex\Provider\MonologServiceProvider(), array(
+    'monolog.logfile' => 'php://stderr',
+));
 
+// Register view rendering
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__ . '/view',
+));
 
-?>
+// Our web handlers
+
+$app->get('/', function () use ($app) {
+
+    return $app->twig->render('index.twig');
+});
+
+$app->run();
