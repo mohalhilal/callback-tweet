@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBIL TOKEN MU DIK</title>
+</head>
+
+<body>
+    <p>OAUTH VERIFIER : <span id="oauth_verifier"></span></p>
+    <p>OAUTH TOKEN : <span id="oauth_token"></span></p>
+
+    <script>
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var oauth_verifier = url.searchParams.get("oauth_verifier");
+        document.getElementById("oauth_verifier").innerHTML = oauth_verifier;
+        var oauth_token = url.searchParams.get("oauth_token");
+        document.getElementById("oauth_token").innerHTML = oauth_token;
+    </script>
+</body>
+
+
+</html>
