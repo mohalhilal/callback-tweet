@@ -13,15 +13,17 @@
     
     <div class="container">
     
-        <div class="card">
+        <div class="card mt-5">
   <div class="card-header">
-    Featured
+    OAUTH VERIFIER
   </div>
   <div class="card-body">
-   <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">OAUTH VERIFIER :</label>
-  <input type="text" id="oauth_verifier" class="form-control"placeholder="oauth_verifier">
+      <div class="input-group mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Token :</label>
+  <input type="text" class="form-control" id="oauth_verifier" placeholder="oauth_verifier" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <button class="btn btn-outline-secondary" type="button" id="copy" onclick="myFunction()">Copy</button>
 </div>
+ 
   </div>
 </div>
     
@@ -35,6 +37,20 @@
         var oauth_verifier = url.searchParams.get("oauth_verifier");
         document.getElementById("oauth_verifier").value = oauth_verifier;
        
+        function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("oauth_verifier");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
     </script>
     
     
