@@ -5,21 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMBIL TOKEN MU DIK</title>
+    <title>TweetWeird - Oauth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <p>OAUTH VERIFIER : <span id="oauth_verifier"></span></p>
-    <p>OAUTH TOKEN : <span id="oauth_token"></span></p>
-
+    
+    <div class="container">
+    
+        <div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+   <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">OAUTH VERIFIER :</label>
+  <input type="text" id="oauth_verifier" class="form-control"placeholder="oauth_verifier">
+</div>
+  </div>
+</div>
+    
+    </div>
+    
+    
+ 
     <script>
         var url_string = window.location.href;
         var url = new URL(url_string);
         var oauth_verifier = url.searchParams.get("oauth_verifier");
-        document.getElementById("oauth_verifier").innerHTML = oauth_verifier;
-        var oauth_token = url.searchParams.get("oauth_token");
-        document.getElementById("oauth_token").innerHTML = oauth_token;
+        document.getElementById("oauth_verifier").value = oauth_verifier;
+       
     </script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 
